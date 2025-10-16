@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Game 2D Platform Demo</title>
+<style>
+  body {
+    margin: 0;
+    overflow: hidden;
+    background: #222;
+  }
+  canvas {
+    display: block;
+    background: linear-gradient(#66ccff, #3399ff);
+  }
+</style>
+</head>
+<body>
+<canvas id="game" width="900" height="500"></canvas>
+
+<script>
+const canvas = document.getElementById("game");
+const ctx = canvas.getContext("2d");
+
+// ====== Game Settings ======
+const gravity = 0.6;
+const groundHeight = 50;
+const keys = {};
+
+// ====== Player ======
+const player = {
+  x: 100, y: 400,
+  w: 40, h: 60,
+  dx: 0, dy: 0,
+  speed: 4,
+  jumpPower: 12,
+  jumpCount: 0,
+  color: "orange",
+  attacking: false
+};
+
+// ====== Platforms ======
+const platforms = [
+  {x: 0, y: 450, w: 900, h: 50}, // ground
+  {x: 200, y: 350, w: 150, h: 20},
+  {x: 450, y: 280, w: 150, h: 20},
+  {x: 700, y: 400, w: 100, h: 20}
+];
+
+// ====== Enemies ======
+let enemies = [
+  {x: 500, y: 420, w: 40, h: 40, dir: -1, alive: true},
+  {x: 250, y: 320, w: 40, h: 40, dir: 1, alive: true}
+];
+
+// ====== Loot ======
+let loots = [];
+
+// ====== Controls ======
+document.addEventListener("keydown", (e) => {
+  keys[e.key.toLowerCase()] = true;
+
+  if (e.code === "Space") {
+    if (player.jumpCount < 2) {
+      player.dy = -player.jumpPower;
+      player.jumpCount++;
+    }
+  }
+});
+document.addEventListener("keyup", (e) => keys[e.key.toLowerCase()] = false);
+
+// ====== Attack ======
+function attack() {
+  if (!player.attacking) {
+    player.attacking = true;
+    setTimeout(() => player.attacking = false, 300);
+  }
+}
+document.addEventListener("keydown", (e) => {
+  if (e.key === "j") attack();
+});
+
+// ====== Update ======
+function update() {
+  // Move left/right
+  player.dx = 0;
+  if (keys["a"]) player.dx = -player.speed;
+  if (keys["d"]) player.dx = player.speed;
+
+  // Gravity
+  player.dy += gravity;
+  player.x += player.dx;
+  player.y += player.dy;
+
+  // Collision with platforms
+  let onGround = false;
+  platforms.forEach(p => {
+    if (
+      player.x + player.w > p.x &&
+      player.x < p.x + p.w &&
+      player.y + player.h > p.y &&
+      player.y + player.h < p.y + p.h &&
+      player.dy >= 0
+    ) {
+      player.y = p.y - player.h;
+      player.dy = 0;
+      onGround = true;
+    }
+  });
+  if (onGround) player.jumpCount = 0;
+
+  // Enemy movement
+  enemies.forEach(e => {
+    if (!e.alive) return;
+    e.x += e.dir * 2;
+    if (e.x < 200 || e.x > 800) e.dir *= -1;
+
+    // Check attack hit
+    if (player.attacking &&
+        player.x + player.w > e.x &&
+        player.x < e.x + e.w &&
+        player.y + player.h > e.y &&
+        player.y < e.y + e.h) {
+      e.alive = false;
+      loots.push({x: e.x + 10, y: e.y, size: 15, dy: -5});
+    }
+  });
+
+  // Loot physics
+  loots.forEach(l => {
+    l.y += l.dy;
+    l.dy += 0.5;
+    if (l.y + l.size > 450) l.y = 450 - l.size;
+  });
+
+  // Limit inside canvas
+  if (player.x < 0) player.x = 0;
+  if (player.x + player.w > canvas.width) player.x = canvas.width - player.w;
+  if (player.y > canvas.height - player.h) {
+    player.y = canvas.height - player.h;
+    player.dy = 0;
+    player.jumpCount = 0;
+  }
+}
+
+// ====== Draw ======
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Platforms
+  ctx.fillStyle = "#444";
+  platforms.forEach(p => ctx.fillRect(p.x, p.y, p.w, p.h));
+
+  // Player
+  ctx.fillStyle = player.color;
+  ctx.fillRect(player.x, player.y, player.w, player.h);
+
+  // Attack visual
+  if (player.attacking) {
+    ctx.fillStyle = "yellow";
+    ctx.fillRect(player.x + (player.dx >= 0 ? player.w : -20), player.y + 10, 20, 10);
+  }
+
+  // Enemies
+  enemies.forEach(e => {
+    if (!e.alive) return;
+    ctx.fillStyle = "red";
+    ctx.fillRect(e.x, e.y, e.w, e.h);
+  });
+
+  // Loot
+  loots.forEach(l => {
+    ctx.fillStyle = "gold";
+    ctx.beginPath();
+    ctx.arc(l.x, l.y, l.size, 0, Math.PI * 2);
+    ctx.fill();
+  });
+}
+
+// ====== Loop ======
+function gameLoop() {
+  update();
+  draw();
+  requestAnimationFrame(gameLoop);
+}
+gameLoop();
+</script>
+</body>
+</html>

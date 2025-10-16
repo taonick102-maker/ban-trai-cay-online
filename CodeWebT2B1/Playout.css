@@ -1,0 +1,26 @@
+body{
+    margin: 0px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.bang-css{
+    display: flex;
+}
+header, footer{
+    background-color:#333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+nav{
+    width: 200px;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+main{
+    flex: 1;
+    padding: 20px;
+}
+footer{
+   font-size: 14px;
+}
+

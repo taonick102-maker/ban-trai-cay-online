@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/DangKy.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+         <title> Đăng ký</title>
+    </head>
+    <body>
+<div class="container">
+    <h2>ĐĂNG KÝ</h2>
+
+    <form>
+      <div class="form-group">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" placeholder="Nhập họ và tên" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" placeholder="Nhập mật khẩu" required>
+      </div>
+
+      <div class="form-group">
+        <label for="confirm">Confirm Password:</label><br>
+        <input type="password" id="confirm" placeholder="Nhập lại mật khẩu" required>
+      </div>
+
+      <div class="form-group">
+        <label for="number">Number Phone:</label><br>
+        <input type="tel" id="number" name="number" placeholder="Nhập số điện thoại" required>
+      </div>
+
+      <!-- Checkbox nằm bên phải -->
+      <div class="checkbox-right">
+        <input type="checkbox" id="agree" required>
+        <label for="agree">I agree to the terms of use</label>
+      </div>
+
+      <!-- Nút nằm giữa -->
+      <div class="btn-center">
+        <button type="submit" id="submit" class="login">Agree</button>
+        <button type="reset" id="No" class="login">No</button>
+      </div>
+    </form>
+  </div>
+  <script src="../JavaScript/DangKy.js"></script>
+    </body>
+</html>

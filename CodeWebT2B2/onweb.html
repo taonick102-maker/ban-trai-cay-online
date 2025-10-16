@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 7 - Mở trang web</title>
+    <script>
+        function moTrangWeb() {
+            // Nhập số
+            var so = prompt("Bạn hãy nhập vào một số để mở trang web:\n1, 2, 3 hoặc số khác");
+
+            // Ép kiểu sang số nguyên
+            so = parseInt(so);
+
+            // Dùng switch để kiểm tra và mở web
+            switch (so) {
+                case 1:
+                    window.open("https://www.w3schools.com");
+                    break;
+                case 2:
+                    window.open("https://download.com.vn");
+                    break;
+                case 3:
+                    window.open("https://vndoc.com");
+                    break;
+                default:
+                    window.open("https://meta.vn");
+                    break;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Bài 7: Mở trang web bằng số nhập vào</h2>
+    <button onclick="moTrangWeb()">Nhập số và mở trang</button>
+</body>
+</html>

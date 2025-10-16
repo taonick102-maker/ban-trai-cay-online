@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datetime</title>
+</head>
+<body>
+    <script>
+        //khi trang cần load lại
+            window.onload = function(){
+            // tạo đối tượng date
+            var now = new Date();
+            //lấy giờ phút
+            var h = now.getHours()
+            var m = now.getMinutes()
+
+            //gán vào tiêu đề của trang
+            document.title = "bây giờ là " +h+ " giờ" + m + "phút"
+
+        }
+    </script>
+</body>
+</html>

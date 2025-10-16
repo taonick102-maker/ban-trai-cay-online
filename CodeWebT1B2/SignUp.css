@@ -1,0 +1,32 @@
+.khung-input{ /* class dùng cho các ô input */
+    width: 150px;
+    height: 15px;
+    border-radius: 5px;
+    margin: auto;
+    padding-left: 10px;
+    border: 1px solid gray;
+    outline: none;
+}
+.khung-input:focus{ /* khi focus vào ô input thì viền đổi màu và có bóng */
+   border-color: rgba(9, 106, 32, 0.527); /* màu xanh lá */
+   box-shadow: 0px 0px 15px  rgba(0, 123, 255, 0.5); /* hộp đỗ bóng  */
+}
+.datebirth-select{ /* class dùng cho các ô select */
+    width: 60px;
+    height: 15px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid gray;
+}
+.datebirth-select:focus{ /* khi focus vào ô select thì viền đổi màu và có bóng */
+    border-color: rgba(9, 106, 32, 0.527); /* màu xanh lá */
+    box-shadow: 0px 0px 15px  rgba(0, 123, 255, 0.5); /* hộp đỗ bóng  */
+}
+.btn-nut{
+    color: orange;
+    background-color: red;
+    padding: 10px;
+    box-shadow: 0px 0px 5px;
+    outline: none;
+    border-color: blueviolet;
+}

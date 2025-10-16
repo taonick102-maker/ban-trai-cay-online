@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mảng</title>
+</head>
+<body>
+    <script>
+        function Mang() {
+    let n, mang = [];
+
+    // Nhập số lượng phần tử
+    do {
+        n = parseInt(prompt("Nhập vào số lượng phần tử: "));
+    } while (isNaN(n) || n <= 0);
+
+    // Nhập các phần tử
+    for (let i = 0; i < n; i++) {
+        let x;
+        do {
+            x = parseInt(prompt(`Nhập phần tử thứ ${i + 1} là:`));
+        } while (isNaN(x));
+        mang.push(x);
+    }
+
+    alert(`[${mang.join(', ')}]`);
+
+    let min = Math.min(...mang),
+        max = Math.max(...mang),
+        countSo2 = mang.filter(x => x === 2).length,
+        mangTangDan = [...mang].sort((a, b) => a - b);
+
+    let ketQua = `
+*** KẾT QUẢ PHÂN TÍCH MẢNG ***
+
+1. Phần tử LỚN NHẤT: ${max}
+2. Phần tử NHỎ NHẤT: ${min}
+3. Số lần xuất hiện của số 2: ${countSo2}
+4. Mảng TĂNG DẦN: [${mangTangDan.join(', ')}]
+`;
+
+    console.log(ketQua);
+    alert(ketQua);
+}
+
+Mang();
+
+    </script>
+</body>
+</html>

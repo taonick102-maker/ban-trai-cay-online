@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính Tổng N</title>
+</head>
+<body>
+    <script>
+
+        let n = prompt("Nhập vào N: ");
+        n = parseInt(n);
+        if(n < 0 || n == 0){
+            alert("Nhập số không hợp lệ")
+        }
+        else{
+            let sum =0
+            for(let i=1;i<=n; i++){
+                sum = sum+i;
+            }
+            alert("bạn vừa nhập N="+n+"tính tổng N vừa nhập là"+sum);
+        }
+    </script>
+</body>
+</html>

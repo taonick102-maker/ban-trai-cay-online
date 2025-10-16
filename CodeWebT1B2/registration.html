@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="registration.css">
+        <title>Registration form</title>
+        <Style>
+            .option-Gender{
+                text-align: left;
+                margin-left: 20px;
+            }
+        </Style>
+    </head>
+    <body>
+
+        <table border="1" cellpadding="10" cellspacing="5" width="550px">
+           <tr>
+                <th colspan="2" style="background-color: rgb(217, 214, 53); text-align: center;" >
+                    <div class="Detai-Registration">
+                        <h1 style="color: red;">
+                        Registration Form
+                    </h1> >
+                    </div>
+                </th>
+           </tr>
+            <tr>
+                <td  style="width: 100px; background-color: rgb(86, 184, 241); width: 150px;" > 
+                    Enter name
+                </td>
+                <td style="background-color: rgb(86, 184, 241);">
+                    <input type="text" placeholder=" " style="width: 250px; height: 25px; ">
+                </td>
+           </tr>
+           <tr>
+                <td  style="width: 100px; background-color: rgb(86, 184, 241); width: 150px;" > 
+                    Enter password
+                </td>
+                <td style="background-color: rgb(86, 184, 241);">
+                    <input type="password" placeholder=" " style="width: 250px; height: 25px; ">
+                </td>
+           </tr>
+           <tr>
+                <td  style="width: 100px; background-color: rgb(86, 184, 241); width: 150px;" > 
+                    Enter Address
+                    <td style="background-color: rgb(86, 184, 241);">
+                       <textarea name="" id="" style="width: 235px; height: 70px;" ></textarea>
+                </td>
+           </tr>
+           <tr>
+                <td  style="width: 100px; background-color: rgb(86, 184, 241); width: 150px;" > 
+                   Select Game 
+                    <td style="background-color: rgb(86, 184, 241);">
+                        <input type="checkbox" name="" id=""> Hockey <br>
+                        <input type="checkbox" name="" id=""> Football <br>
+                        <input type="checkbox" name="" id=""> Badminton <br>
+                        <input type="checkbox" name="" id=""> Criket <br>
+                        <input type="checkbox" name="" id=""> Volleyball 
+                </td>
+           </tr>
+            <tr>
+                <td  style="width: 100px; background-color: rgb(86, 184, 241); width: 150px;" > 
+                    Gender
+                    <td style="background-color: rgb(86, 184, 241);">
+                        <input type="radio" name="gender" value="Male">Male 
+                        <input type="radio" name="gender" value="Female">Female       
+           </tr>
+            <tr>
+                <td  style="width: 100px; background-color: rgb(86, 184, 241); width: 150px;" > 
+                   Select ur age
+                    <td style="background-color: rgb(86, 184, 241);">
+                        <select style="width: 100px;">
+                            <option value="1">Dưới 18</option>
+                            <option value="2">18-30</option>
+                            <option value="3">30-45</option>
+                            <option value="4">trên 45</option>
+                        </select>
+                </td>
+           </tr>
+             <tr>
+                <td  style="width: 100px; background-color: rgb(86, 184, 241); width: 150px;" > 
+                   Slect Photo
+                    <td style="background-color: rgb(86, 184, 241);">
+                       <input type="file" name="photo" id="photo" accept="image/*,.docx,.pdf, .txt, .xlsx, 
+                                                                    .pptx, .doc, .xls, .ppt,jng,.jpeg">
+                </td>
+           </tr>
+           <tr>
+                <td colspan="2" style="background-color: rgb(86, 184, 241); text-align: center;">
+                   
+                    <button id="Clickme" type="button">Click Me</button>
+                    <button id="Reset" type="reset">Reset</button>
+                    <button id="Submit" type="submit">Submit</button>
+                </td>
+           </tr>
+        </table>
+
+         <script src="./Registration.js"></script>
+    </body>
+</html>

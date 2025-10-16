@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách học sinh ngu</title>
+</head>
+<body>
+    <script>
+        let n = prompt("cần nhập số lượng sinh viên");
+        n = parseInt(n);
+        let ds = [];
+
+        for(let i = 0; i < n ;i++ ){
+            let ten = prompt("Nhập vào họ và tên thứ " +( i + 1)+ ":")
+            ds.push(ten);
+        }
+        ds.sort();
+        document.write("<h2>Danh sách học sinh đã nhập được sắp xếp là</h2>");
+        for(let i in ds){
+            document.write(ds[i] + "<br>");
+        }
+    </script>
+</body>
+</html>

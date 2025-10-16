@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giải trí - Kéo Búa Bao</title>
+  <link rel="stylesheet" href="../CSS/giaitri.css">
+</head>
+<body>
+  <h2>🎮 Trò chơi Kéo - Búa - Bao 🎮</h2>
+
+  <div class="game-container">
+    <p>Chọn một trong ba biểu tượng dưới đây:</p>
+
+    <div class="choices">
+      <div class="choice" id="keo" onclick="choose('keo')">
+        ✌️<br>Kéo
+      </div>
+      <div class="choice" id="bua" onclick="choose('bua')">
+        ✊<br>Búa
+      </div>
+      <div class="choice" id="bao" onclick="choose('bao')">
+        ✋<br>Bao
+      </div>
+    </div>
+
+    <div class="result">
+      <p id="ketqua">👉 Hãy chọn 1 biểu tượng để bắt đầu chơi!</p>
+      <button class="restart" onclick="restartGame()">🔄 Chơi lại</button>
+    </div>
+  </div>
+
+  <script src="../JS/giaitri.js"></script>
+</body>
+</html>
